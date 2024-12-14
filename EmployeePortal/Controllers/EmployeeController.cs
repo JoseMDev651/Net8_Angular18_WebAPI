@@ -23,6 +23,7 @@ namespace EmployeePortal.Controllers
             return Ok(allEmployees);
         }
 
+        [HttpPost]
         public async Task<ActionResult> Add(Employee vm)
         {
             await emp.SaveEmployee(vm);
