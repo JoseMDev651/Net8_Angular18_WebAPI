@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './employee.component.css'
 })
 export class EmployeeComponent {
-
+  openModal() {
+    const empModal = document.getElementById('myModal');
+    if (empModal != null) {
+      empModal.style.display = 'block';
+    }
+  }
 }
