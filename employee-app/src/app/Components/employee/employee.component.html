@@ -35,20 +35,63 @@
     </table>
 </div>
 
-<div class="modal" tabindex="-1" id="myModal">
+<div class="modal" tabindex="-1" id="myModal" #myModal>
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-info">
+                <h5 class="modal-title">Add Employee</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="closeModal()"></button>
             </div>
-            <div class="modal-body">
-                <p>Modal body text goes here.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+            <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <input type="text" formControlName="name" name="name" class="form-control"
+                                placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <input type="text" formControlName="email" name="email" class="form-control"
+                                placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <input type="text" formControlName="mobile" name="mobile" class="form-control"
+                                placeholder="Mobile">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <input type="number" formControlName="employeeId" name="employeeId" class="form-control"
+                                placeholder="Age">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <input type="number" formControlName="salary" name="salary" class="form-control"
+                                placeholder="Salary">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="from-group form-check">
+                                <input type="checkbox" formControlName="status" name="status" class="form-check-input"
+                                    placeholder="Status">
+                                <label> Active ? </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="closeModal()">Close</button>
+                    <button type="submit" [disabled]="this.employeeForm.invalid" class="btn btn-primary">Save
+                        changes</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
