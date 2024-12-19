@@ -14,4 +14,8 @@ export class EmployeeService {
   getAllEmployees() {
     return this.http.get<Employee[]>(this.apiUrl);
   }
+
+  addEmployee(data: any) {
+    return this.http.post(this.apiUrl, data);
+  }
 }

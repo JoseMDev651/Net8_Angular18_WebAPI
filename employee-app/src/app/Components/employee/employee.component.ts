@@ -19,6 +19,7 @@ export class EmployeeComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
   ngOnInit(): void {
     this.setFormState();
+    this.getEmployees();
   }
 
 
@@ -54,8 +55,19 @@ export class EmployeeComponent implements OnInit {
       }
     )
   }
-
+  formValues: any;
   onSubmit() {
     console.log(this.employeeForm.value);
+    if (this.employeeForm.invalid) {
+      alert("Please fill all fields");
+      return;
+    }
+    this.formValues = this.employeeForm.value;
+    this.empService.addEmployee(this.formValues).subscribe((res) => {
+      alert('Employee added successfully');
+      this.getEmployees();
+      this.employeeForm.reset();
+      this.closeModal();
+    })
   }
 }

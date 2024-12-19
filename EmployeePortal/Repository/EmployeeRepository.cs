@@ -22,5 +22,10 @@ namespace EmployeePortal.Repository
             await db.Employees.AddAsync(emp);
             await db.SaveChangesAsync();
         }
+
+        public async Task UpdateEmployee(int id, Employee obj) 
+        { 
+            var employee = await db.Employees.FindAsync(id);
+        }
     }
 }

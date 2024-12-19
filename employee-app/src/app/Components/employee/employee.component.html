@@ -21,16 +21,20 @@
             </tr>
         </thead>
         <tbody>
-            <td>Pepe</td>
-            <td>wer&#64;sdkasd.com</td>
-            <td>23423424</td>
-            <td>0</td>
-            <td>234243</td>
-            <td>1</td>
-            <td class="text-center">
-                <button class="btn btn-primary">Edit</button> ||
-                <button class="btn btn-danger">Delete</button>
-            </td>
+            @for (item of employeeList; track $index){
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.employeeId}}</td>
+                <td>{{item.salary}}</td>
+                <td>{{item.status}}</td>
+                <td class="text-center">
+                    <button class="btn btn-primary">Edit</button> ||
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+            }
         </tbody>
     </table>
 </div>
@@ -66,7 +70,7 @@
                     <div class="row mt-3">
                         <div class="col-6">
                             <input type="number" formControlName="employeeId" name="employeeId" class="form-control"
-                                placeholder="Age">
+                                placeholder="employeeId">
                         </div>
                     </div>
                     <div class="row mt-3">
